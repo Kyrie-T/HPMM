@@ -28,6 +28,8 @@ The designs were implemented and synthesized using **Vivado 2024.2** on a Xilinx
 
 ![image-20260206210657204](./assets/image-20260206210657204.png)
 
+## Project Structure
+
 ```text
 ├── src/
 │   ├── multiplier_kyber/    # Full Modular Multiplier for Kyber (based on Yaman's PE)
