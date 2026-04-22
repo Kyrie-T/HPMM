@@ -98,7 +98,7 @@ endmodule
 //genvar i;
 //    for (i = 0; i < 12; i = i + 1) begin: LUTS
 //        LUT6 #(
-//            .INIT(LUT_INIT[i*64 +: 64]) // Ô¤¼ÆËãµÄ LUT Öµ
+//            .INIT(LUT_INIT[i*64 +: 64]) // é¢„è®¡ç®—çš„ LUT å€¼
 //        ) LUT6_inst (
 //            .O(LUT_out[i]),
 //            .I0(high_reg[18]),
@@ -110,9 +110,9 @@ endmodule
 //        );
 //    end
 //endgenerate
-//wire [12:0] low_sum = high_reg[11:0] + LUT_out; // µÍ 12 Î»¼Ó·¨
-//wire [6:0] high_sum = high_reg[17:12] + low_sum[12]; // ¸ß 6 Î»¼Ó½øÎ»
-//wire [18:0] LUT_reduced = {high_sum, low_sum[11:0]}; // ºÏ²¢½á¹û
+//wire [12:0] low_sum = high_reg[11:0] + LUT_out; // ä½Ž 12 ä½åŠ æ³•
+//wire [6:0] high_sum = high_reg[17:12] + low_sum[12]; // é«˜ 6 ä½åŠ è¿›ä½
+//wire [18:0] LUT_reduced = {high_sum, low_sum[11:0]}; // åˆå¹¶ç»“æžœ
 //reg [18:0] LUT_reduced_reg;
 //always @(posedge clk) LUT_reduced_reg <= LUT_reduced;
 
@@ -120,7 +120,7 @@ endmodule
 //wire [13:0] Kred_upper = LUT_reduced_reg[18:8] - (LUT_reduced_reg[7:0] << 3);
 //wire [10:0] Kred_lower = (LUT_reduced_reg[7:0] << 2) + {2'b0, LUT_reduced_reg[7:0]};
 //wire [13:0] Kred_result = Kred_upper - Kred_lower;
-//reg [13:0] Kred_result_reg; // À©Õ¹µ½ 14 Î»ÒÔÈÝÄÉ·ûºÅÎ»
+//reg [13:0] Kred_result_reg; // æ‰©å±•åˆ° 14 ä½ä»¥å®¹çº³ç¬¦å·ä½
 //always @(posedge clk) Kred_result_reg <= Kred_result;
 
 //// Stage 3
@@ -144,7 +144,7 @@ endmodule
 //     high_reg <= a * b;
 // end
 
-// //stage 1µÄLUTº¯Êý
+// //stage 1çš„LUTå‡½æ•°
 // function [63:0] LUT_parameter;
 //     input [3:0] LUT_index;
 //     integer i;

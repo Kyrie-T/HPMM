@@ -81,7 +81,7 @@ endmodule
 //     high_reg <= a * b;
 // end
 
-// //stage 1µÄLUTº¯Êý
+// //stage 1çš„LUTå‡½æ•°
 // function [63:0] LUT_parameter;
 //     input [3:0] LUT_index;
 //     integer i;

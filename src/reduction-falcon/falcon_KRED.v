@@ -101,8 +101,8 @@ end
 // Split at bit n=12: N_high = L[22:12], N_low = L[11:0]
 // Compute: Kred_result = N_high - 3 * N_low
 // 
-// Mathematical basis: 2^12 ≡ -3 (mod 12289)
-// So: N = N_high * 2^12 + N_low ≡ -3 * N_high + N_low (mod q)
+// Mathematical basis: 2^12 === -3 (mod 12289)
+// So: N = N_high * 2^12 + N_low === -3 * N_high + N_low (mod q)
 // We compute: N_high - 3 * N_low which equals -3 * N (mod q)
 //
 // N_high range: 0 to 2047 (11 bits from [22:12])

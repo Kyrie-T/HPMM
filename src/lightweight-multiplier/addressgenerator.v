@@ -16,11 +16,11 @@ module addressgenerator (input             clk,reset,
 // ---------------------------------------------------------------------------
 
 // Control signals
-// ¼ÆÊıÆ÷
+// è®¡æ•°å™¨
 reg [2:0] c_stage;
 reg [6:0] c_loop;
 reg [2:0] c_pwm;
-reg [8:0] c_tw;     // Ö¸Êı
+reg [8:0] c_tw;     // æŒ‡æ•°
 
 // ---------------------------------------------------------------------------
 // FSM
@@ -400,7 +400,7 @@ wire [8:0] raddr_twd0;
 // shiftreg #(.SHIFT(1),.DATA(7)) sre13(clk,reset,raddr_b_w,raddr_b_wd0);
 // shiftreg #(.SHIFT(1),.DATA(9)) sre14(clk,reset,c_tw   ,raddr_twd0);
 
-// k-red    ¼ÓÁ½¸ö¼Ä´æÆ÷ bertels  Ni 6 cycles (OLD - without CT_reg optimization)
+// k-red    åŠ ä¸¤ä¸ªå¯„å­˜å™¨ bertels  Ni 6 cycles (OLD - without CT_reg optimization)
 shiftreg #(.SHIFT(1),.DATA(1)) sre00(clk,reset,b_ct   ,ctd0);   
 shiftreg #(.SHIFT(1),.DATA(1)) sre01(clk,reset,b_pwm  ,pwmd0);
 shiftreg #(.SHIFT(7),.DATA(8)) sre02(clk,reset,waddre ,waddrd0); 
@@ -420,53 +420,53 @@ shiftreg #(.SHIFT(1),.DATA(9)) sre14(clk,reset,c_tw   ,raddr_twd0);
 // k-red with CT_reg optimization (+1 cycle): CT butterfly 7 cycles, GS butterfly 8 cycles
 //  shiftreg #(.SHIFT(1),.DATA(1)) sre00(clk,reset,b_ct   ,ctd0);   
 //  shiftreg #(.SHIFT(1),.DATA(1)) sre01(clk,reset,b_pwm  ,pwmd0);
-//  shiftreg #(.SHIFT(8),.DATA(8)) sre02(clk,reset,waddre ,waddrd0);  // [ĞŞ¸Ä] 7¡ú8, EÂ·¾¶Ğ´µØÖ·
-//  shiftreg #(.SHIFT(9),.DATA(8)) sre03(clk,reset,waddro ,waddrd1);  // [ĞŞ¸Ä] 8¡ú9, OÂ·¾¶Ğ´µØÖ·
-//  shiftreg #(.SHIFT(8),.DATA(1)) sre04(clk,reset,wen    ,wend0);    // [ĞŞ¸Ä] 7¡ú8, Ğ´Ê¹ÄÜ0
-//  shiftreg #(.SHIFT(9),.DATA(1)) sre05(clk,reset,wen    ,wend1);    // [ĞŞ¸Ä] 8¡ú9, Ğ´Ê¹ÄÜ1
-//  shiftreg #(.SHIFT(8),.DATA(1)) sre06(clk,reset,brsel  ,brseld0);  // [ĞŞ¸Ä] 7¡ú8, BRAMÑ¡Ôñ0
-//  shiftreg #(.SHIFT(9),.DATA(1)) sre07(clk,reset,brsel  ,brseld1);  // [ĞŞ¸Ä] 8¡ú9, BRAMÑ¡Ôñ1
-//  shiftreg #(.SHIFT(8),.DATA(1)) sre08(clk,reset,brselen,brselend0);// [ĞŞ¸Ä] 7¡ú8, BRAMÑ¡ÔñÊ¹ÄÜ0
-//  shiftreg #(.SHIFT(9),.DATA(1)) sre09(clk,reset,brselen,brselend1);// [ĞŞ¸Ä] 8¡ú9, BRAMÑ¡ÔñÊ¹ÄÜ1
-//  shiftreg #(.SHIFT(9),.DATA(3)) sre10(clk,reset,c_stage,stage_countd0); // [ĞŞ¸Ä] 8¡ú9, ¼¶Êı¼ÆÊı
+//  shiftreg #(.SHIFT(8),.DATA(8)) sre02(clk,reset,waddre ,waddrd0);  // [ä¿®æ”¹] 7â†’8, Eè·¯å¾„å†™åœ°å€
+//  shiftreg #(.SHIFT(9),.DATA(8)) sre03(clk,reset,waddro ,waddrd1);  // [ä¿®æ”¹] 8â†’9, Oè·¯å¾„å†™åœ°å€
+//  shiftreg #(.SHIFT(8),.DATA(1)) sre04(clk,reset,wen    ,wend0);    // [ä¿®æ”¹] 7â†’8, å†™ä½¿èƒ½0
+//  shiftreg #(.SHIFT(9),.DATA(1)) sre05(clk,reset,wen    ,wend1);    // [ä¿®æ”¹] 8â†’9, å†™ä½¿èƒ½1
+//  shiftreg #(.SHIFT(8),.DATA(1)) sre06(clk,reset,brsel  ,brseld0);  // [ä¿®æ”¹] 7â†’8, BRAMé€‰æ‹©0
+//  shiftreg #(.SHIFT(9),.DATA(1)) sre07(clk,reset,brsel  ,brseld1);  // [ä¿®æ”¹] 8â†’9, BRAMé€‰æ‹©1
+//  shiftreg #(.SHIFT(8),.DATA(1)) sre08(clk,reset,brselen,brselend0);// [ä¿®æ”¹] 7â†’8, BRAMé€‰æ‹©ä½¿èƒ½0
+//  shiftreg #(.SHIFT(9),.DATA(1)) sre09(clk,reset,brselen,brselend1);// [ä¿®æ”¹] 8â†’9, BRAMé€‰æ‹©ä½¿èƒ½1
+//  shiftreg #(.SHIFT(9),.DATA(3)) sre10(clk,reset,c_stage,stage_countd0); // [ä¿®æ”¹] 8â†’9, çº§æ•°è®¡æ•°
 //  shiftreg #(.SHIFT(2),.DATA(3)) sre11(clk,reset,c_pwm,  stage_count_pwmd0);
 //  shiftreg #(.SHIFT(2),.DATA(7)) sre12(clk,reset,c_loop ,c_loop_pwmd0);
 //  shiftreg #(.SHIFT(1),.DATA(7)) sre13(clk,reset,raddr_b_w,raddr_b_wd0); 
 //  shiftreg #(.SHIFT(1),.DATA(9)) sre14(clk,reset,c_tw   ,raddr_twd0);
 
-// ¼Ó 3 reg
-// shiftreg #(.SHIFT(1),.DATA(1)) sre00(clk,reset,b_ct   ,ctd0);   // ²»Òª¸Ä
+// åŠ  3 reg
+// shiftreg #(.SHIFT(1),.DATA(1)) sre00(clk,reset,b_ct   ,ctd0);   // ä¸è¦æ”¹
 // shiftreg #(.SHIFT(1),.DATA(1)) sre01(clk,reset,b_pwm  ,pwmd0);
-// shiftreg #(.SHIFT(8),.DATA(8)) sre02(clk,reset,waddre ,waddrd0); // ²»¶¯
-// shiftreg #(.SHIFT(9),.DATA(8)) sre03(clk,reset,waddro ,waddrd1); // ²»¶¯
-// shiftreg #(.SHIFT(8),.DATA(1)) sre04(clk,reset,wen    ,wend0); // ²»¶¯
-// shiftreg #(.SHIFT(9),.DATA(1)) sre05(clk,reset,wen    ,wend1); // ²»¶¯
-// shiftreg #(.SHIFT(8),.DATA(1)) sre06(clk,reset,brsel  ,brseld0); // ²»¶¯
-// shiftreg #(.SHIFT(9),.DATA(1)) sre07(clk,reset,brsel  ,brseld1); // ²»¶¯
-// shiftreg #(.SHIFT(8),.DATA(1)) sre08(clk,reset,brselen,brselend0); // ²»¶¯
-// shiftreg #(.SHIFT(9),.DATA(1)) sre09(clk,reset,brselen,brselend1); // ²»¶¯
-// shiftreg #(.SHIFT(9),.DATA(3)) sre10(clk,reset,c_stage,stage_countd0); // ²»¶¯
+// shiftreg #(.SHIFT(8),.DATA(8)) sre02(clk,reset,waddre ,waddrd0); // ä¸åŠ¨
+// shiftreg #(.SHIFT(9),.DATA(8)) sre03(clk,reset,waddro ,waddrd1); // ä¸åŠ¨
+// shiftreg #(.SHIFT(8),.DATA(1)) sre04(clk,reset,wen    ,wend0); // ä¸åŠ¨
+// shiftreg #(.SHIFT(9),.DATA(1)) sre05(clk,reset,wen    ,wend1); // ä¸åŠ¨
+// shiftreg #(.SHIFT(8),.DATA(1)) sre06(clk,reset,brsel  ,brseld0); // ä¸åŠ¨
+// shiftreg #(.SHIFT(9),.DATA(1)) sre07(clk,reset,brsel  ,brseld1); // ä¸åŠ¨
+// shiftreg #(.SHIFT(8),.DATA(1)) sre08(clk,reset,brselen,brselend0); // ä¸åŠ¨
+// shiftreg #(.SHIFT(9),.DATA(1)) sre09(clk,reset,brselen,brselend1); // ä¸åŠ¨
+// shiftreg #(.SHIFT(9),.DATA(3)) sre10(clk,reset,c_stage,stage_countd0); // ä¸åŠ¨
 // shiftreg #(.SHIFT(2),.DATA(3)) sre11(clk,reset,c_pwm,  stage_count_pwmd0);
 // shiftreg #(.SHIFT(2),.DATA(7)) sre12(clk,reset,c_loop ,c_loop_pwmd0);
-// shiftreg #(.SHIFT(1),.DATA(7)) sre13(clk,reset,raddr_b_w,raddr_b_wd0); // ²»¶¯
-// shiftreg #(.SHIFT(1),.DATA(9)) sre14(clk,reset,c_tw   ,raddr_twd0); // ²»¶¯
+// shiftreg #(.SHIFT(1),.DATA(7)) sre13(clk,reset,raddr_b_w,raddr_b_wd0); // ä¸åŠ¨
+// shiftreg #(.SHIFT(1),.DATA(9)) sre14(clk,reset,c_tw   ,raddr_twd0); // ä¸åŠ¨
 
-// xing    barret ¼ÓËÄ¸ö¼Ä´æÆ÷
-//shiftreg #(.SHIFT(1),.DATA(1)) sre00(clk,reset,b_ct   ,ctd0);   // ²»Òª¸Ä
+// xing    barret åŠ å››ä¸ªå¯„å­˜å™¨
+//shiftreg #(.SHIFT(1),.DATA(1)) sre00(clk,reset,b_ct   ,ctd0);   // ä¸è¦æ”¹
 //shiftreg #(.SHIFT(1),.DATA(1)) sre01(clk,reset,b_pwm  ,pwmd0);
-//shiftreg #(.SHIFT(9),.DATA(8)) sre02(clk,reset,waddre ,waddrd0); // ²»¶¯
-//shiftreg #(.SHIFT(10),.DATA(8)) sre03(clk,reset,waddro ,waddrd1); // ²»¶¯
-//shiftreg #(.SHIFT(9),.DATA(1)) sre04(clk,reset,wen    ,wend0); // ²»¶¯
-//shiftreg #(.SHIFT(10),.DATA(1)) sre05(clk,reset,wen    ,wend1); // ²»¶¯
-//shiftreg #(.SHIFT(5),.DATA(1)) sre06(clk,reset,brsel  ,brseld0); // ²»¶¯
-//shiftreg #(.SHIFT(6),.DATA(1)) sre07(clk,reset,brsel  ,brseld1); // ²»¶¯
-//shiftreg #(.SHIFT(5),.DATA(1)) sre08(clk,reset,brselen,brselend0); // ²»¶¯
-//shiftreg #(.SHIFT(6),.DATA(1)) sre09(clk,reset,brselen,brselend1); // ²»¶¯
-//shiftreg #(.SHIFT(10),.DATA(3)) sre10(clk,reset,c_stage,stage_countd0); // ²»¶¯
+//shiftreg #(.SHIFT(9),.DATA(8)) sre02(clk,reset,waddre ,waddrd0); // ä¸åŠ¨
+//shiftreg #(.SHIFT(10),.DATA(8)) sre03(clk,reset,waddro ,waddrd1); // ä¸åŠ¨
+//shiftreg #(.SHIFT(9),.DATA(1)) sre04(clk,reset,wen    ,wend0); // ä¸åŠ¨
+//shiftreg #(.SHIFT(10),.DATA(1)) sre05(clk,reset,wen    ,wend1); // ä¸åŠ¨
+//shiftreg #(.SHIFT(5),.DATA(1)) sre06(clk,reset,brsel  ,brseld0); // ä¸åŠ¨
+//shiftreg #(.SHIFT(6),.DATA(1)) sre07(clk,reset,brsel  ,brseld1); // ä¸åŠ¨
+//shiftreg #(.SHIFT(5),.DATA(1)) sre08(clk,reset,brselen,brselend0); // ä¸åŠ¨
+//shiftreg #(.SHIFT(6),.DATA(1)) sre09(clk,reset,brselen,brselend1); // ä¸åŠ¨
+//shiftreg #(.SHIFT(10),.DATA(3)) sre10(clk,reset,c_stage,stage_countd0); // ä¸åŠ¨
 //shiftreg #(.SHIFT(2),.DATA(3)) sre11(clk,reset,c_pwm,  stage_count_pwmd0);
 //shiftreg #(.SHIFT(2),.DATA(7)) sre12(clk,reset,c_loop ,c_loop_pwmd0);
-//shiftreg #(.SHIFT(1),.DATA(7)) sre13(clk,reset,raddr_b_w,raddr_b_wd0); // ²»¶¯
-//shiftreg #(.SHIFT(1),.DATA(9)) sre14(clk,reset,c_tw   ,raddr_twd0); // ²»¶¯
+//shiftreg #(.SHIFT(1),.DATA(7)) sre13(clk,reset,raddr_b_w,raddr_b_wd0); // ä¸åŠ¨
+//shiftreg #(.SHIFT(1),.DATA(9)) sre14(clk,reset,c_tw   ,raddr_twd0); // ä¸åŠ¨
 
 // --------------------------------------------------------------------------- outputs
 // raddr (tw)

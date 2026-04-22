@@ -13,6 +13,7 @@ http://creativecommons.org/publicdomain/zero/1.0/
 // This module tests INTT operation
 
 `timescale 1ns / 1ps
+`include "config.vh"
 
 module KyberHPM1PE_test_INTT();
 
@@ -45,10 +46,10 @@ reg [11:0] doub	[0:255];
 
 initial begin
 	// ntt
-	$readmemh("E:/vivado_files/kyber-polmul-hw/test_generator/test_pe1/KYBER_DIN0_MFNTT.txt" , dina);
-	$readmemh("E:/vivado_files/kyber-polmul-hw/test_generator/test_pe1/KYBER_DIN1_MFNTT.txt" , dinb);
-	$readmemh("E:/vivado_files/kyber-polmul-hw/test_generator/test_pe1/KYBER_DIN0.txt" , doua);
-	$readmemh("E:/vivado_files/kyber-polmul-hw/test_generator/test_pe1/KYBER_DIN1.txt" , doub);
+	$readmemh(`KYBER_PE1_DIN0_MFNTT , dina);
+	$readmemh(`KYBER_PE1_DIN1_MFNTT , dinb);
+	$readmemh(`KYBER_PE1_DIN0       , doua);
+	$readmemh(`KYBER_PE1_DIN1       , doub);
 end
 
 // ---------------------------------------------------------------- TEST case

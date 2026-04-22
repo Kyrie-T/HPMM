@@ -3,6 +3,7 @@
 // -1st and 2nd polynomials in POLY domain
 
 `timescale 1ns / 1ps
+`include "config.vh"
 
 module KyberHPM4PE_test_ALL_FULL();
 
@@ -35,10 +36,10 @@ reg [11:0] posd [0:255];
 
 initial begin
 	// ntt
-	$readmemh("E:/vivado_files/kyber-polmul-hw/test_generator/test_pe4/KYBER_DIN0.txt" , dina);
-	$readmemh("E:/vivado_files/kyber-polmul-hw/test_generator/test_pe4/KYBER_DIN1.txt" , dinb);
-	$readmemh("E:/vivado_files/kyber-polmul-hw/test_generator/test_pe4/KYBER_DOUT.txt" , doua);
-    $readmemh("E:/vivado_files/kyber-polmul-hw/test_generator/test_pe4/KYBER_POS_RES.txt" ,  posd);
+	$readmemh(`KYBER_PE4_DIN0    , dina);
+	$readmemh(`KYBER_PE4_DIN1    , dinb);
+	$readmemh(`KYBER_PE4_DOUT    , doua);
+    $readmemh(`KYBER_PE4_POS_RES ,  posd);
 end
 
 // ---------------------------------------------------------------- TEST case

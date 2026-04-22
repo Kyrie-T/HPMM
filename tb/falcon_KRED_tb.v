@@ -16,7 +16,7 @@
 //            The factor -3 should be absorbed into twiddle factor precomputation
 //
 // Verification: For each test, we verify:
-//               DUT_output ≡ -3 * a * b (mod 12289)
+//               DUT_output === -3 * a * b (mod 12289)
 //
 // Revision:
 // Revision 0.01 - File Created

@@ -30,7 +30,7 @@ module butterfly_falcon_kred_tb_simple();
 `define NO_OF_TWIDDLES_TESTED 100    // Number of twiddle factors to test
 
 localparam Q = 12289;                 // Falcon modulus
-localparam PRIMITIVE_ROOT = 7;        // Primitive 2n-th root of unity (ψ)
+localparam PRIMITIVE_ROOT = 7;        // Primitive 2n-th root of unity (psi)
 localparam KRED_FACTOR = 4096;        // (-3)^(-1) mod 12289
 
 reg clk;
