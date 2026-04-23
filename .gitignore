@@ -1,0 +1,30 @@
+# Vivado temporary and generated files
+.Xil/
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+*.wcfg
+*.vcd
+*.rpt
+*.xml
+*.html
+
+# Vivado project outputs
+.cache/
+.hw/
+.ip_user_files/
+.sim/
+.runs/
+.gen/
+.srcs/
+
+# Vivado lock/history
+*.backup.*
+*.tmp
+
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/settings.json

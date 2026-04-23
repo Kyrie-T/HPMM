@@ -1,23 +1,23 @@
 
 module modsub #(
-    parameter LOGQ       = 12,            // 数据位宽为 12 位
-    parameter [LOGQ:0] Q_VALUE = 13'd3329 // 固定模数为 3329
+    parameter LOGQ       = 12,            // Data width: 12 bits
+    parameter [LOGQ:0] Q_VALUE = 13'd3329 // Fixed modulus: 3329
 ) (
-    input  [LOGQ-1:0] a,   // 输入 a（12 位）
-    input  [LOGQ-1:0] b,   // 输入 b（12 位）
-    output [LOGQ-1:0] c    // 输出 c（12 位）
+    input  [LOGQ-1:0] a,   // Input a (12 bits)
+    input  [LOGQ-1:0] b,   // Input b (12 bits)
+    output [LOGQ-1:0] c    // Output c (12 bits)
 );
 
 // ------------------------------------------
-// 组合逻辑实现（无时钟和寄存器）
+// Combinational implementation (no clock or registers)
 // ------------------------------------------
-wire signed [LOGQ:0]   msub;      // 临时减法结果（13 位有符号数）
-wire signed [LOGQ:0] msub_q; // 加上模数后的有符号结果（13 位有符号数）
+wire signed [LOGQ:0]   msub;      // Temporary subtraction result (13-bit signed)
+wire signed [LOGQ:0] msub_q; // Signed result after adding modulus (13-bit signed)
 
-assign msub = a + ~b + 1;                // 计算 a - b（13 位有符号数）
-assign msub_q = msub + Q_VALUE;     // 加上模数 3329（13 位有符号数）
+assign msub = a + ~b + 1;                // Compute a - b (13-bit signed)
+assign msub_q = msub + Q_VALUE;     // Add modulus 3329 (13-bit signed)
 
-// 结果选择：若 msub 非负，取减法结果；否则加上模数结果
+// Select result: if msub is non-negative, use msub; otherwise use msub_q
 assign c = (msub[LOGQ] == 0) ? msub[LOGQ-1:0] : msub_q[LOGQ-1:0];
 
 endmodule
