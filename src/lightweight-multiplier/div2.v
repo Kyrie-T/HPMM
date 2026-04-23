@@ -8,7 +8,8 @@
  *       For even x, no correction is needed since the division by 2 is exact.
  *
  *       This module assumes that the input x is in the range [0, 3328], which is valid for Kyber's modulus.
- *
+ */
+
 module div2(input [11:0] x,
             output[11:0] y);
 
