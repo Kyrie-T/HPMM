@@ -114,8 +114,15 @@ All testbenches in `tb/` are self-checking and print `PASS` / `FAIL` to the cons
 
 1. Add the chosen testbench `.v` from `tb/` as a simulation source.
 2. Add the corresponding `src/` RTL files.
-3. Run behavioral simulation (`Run Simulation → Run Behavioral Simulation`).
-4. Observe the console output for test results.
+3. Set the **Simulation Top** to the selected testbench module:
+   - `tb/KyberHPM4PE_test_ALL_FULL.v` -> `KyberHPM4PE_test_ALL_FULL`
+   - `tb/KyberHPM1PE_test_ALL_FULL.v` -> `KyberHPM1PE_test_ALL_FULL`
+   - `tb/KyberHPM1PE_test_FNTT.v` -> `KyberHPM1PE_test_FNTT`
+   - `tb/KyberHPM1PE_test_INTT.v` -> `KyberHPM1PE_test_INTT`
+   - `tb/falcon_KRED_tb.v` -> `falcon_KRED_tb`
+   - `tb/butterfly_falcon_kred_tb_simple.v` -> `butterfly_falcon_kred_tb_simple`
+4. Run behavioral simulation (`Run Simulation → Run Behavioral Simulation`).
+5. Observe the console output for test results.
 
 ---
 
