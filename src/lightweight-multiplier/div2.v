@@ -1,14 +1,14 @@
-
-//module div2(input [11:0] x,
-//            output[11:0] y);
-
-//wire [10:0] x0and;
-
-//assign x0and = {11{x[0]}} & 11'd1665;
-//assign y     = x[11:1] + x0and;
-
-//endmodule
-
+/*
+ * div2.v - divide by 2 with rounding for Kyber modulus 3329
+ *
+ * Note: This module performs (x + 1665) >> 1 when x is odd, and x >> 1 when x is even.
+ *       This effectively computes round(x / 2) mod 3329, since 1665 = (3329 - 1) / 2.
+ *
+ *       The correction term of 1665 is added to ensure correct rounding when x is odd.
+ *       For even x, no correction is needed since the division by 2 is exact.
+ *
+ *       This module assumes that the input x is in the range [0, 3328], which is valid for Kyber's modulus.
+ *
 module div2(input [11:0] x,
             output[11:0] y);
 
