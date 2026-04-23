@@ -19,7 +19,7 @@
 //
 // Note: Output includes implicit factor of -k = -3, which should be
 //       absorbed into twiddle factor precomputation: W' = W * (-3)^(-1) mod q
-//       where (-3)^(-1) mod 12289 = 8193
+//       where (-3)^(-1) mod 12289 = 4096
 //
 // Revision:
 // Revision 0.01 - File Created
