@@ -22,9 +22,9 @@
 */
 
 module KyberHPM4PE #(parameter PE_NUMBER=4,
-                               FNTT_CC=8'd236,
-                               PWM2_CC=8'd137,
-                               INTT_CC=8'd237,
+                               FNTT_CC=8'd234,
+                               PWM2_CC=8'd169,
+                               INTT_CC=8'd235,
                                POS_CC=10'd64
                             //    FNTT_CC=8'd232,
                             //    PWM2_CC=8'd167,

@@ -17,10 +17,9 @@
 */
 
 module KyberHPM1PE #(parameter PE_NUMBER=1,
-                               FNTT_CC=10'd908, // [ÐÞ¸Ä] 908¡ú915, CT_reg adds 1 cycle per stage (+7 cycles total)
+                               FNTT_CC=10'd906,
                                PWM2_CC=10'd649,
-//                               PWM2_CC=10'd521,
-                               INTT_CC=10'd908, // [ÐÞ¸Ä] 908¡ú915, CT_reg adds 1 cycle per stage (+7 cycles total)
+                               INTT_CC=10'd906, 
                                POS_CC=10'd256)
                   (input                         clk,reset,
                    input                         load_a_f,load_a_i,

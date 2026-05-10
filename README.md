@@ -33,6 +33,17 @@ The designs were implemented and synthesized using **Vivado 2024.2** on a Xilinx
    <img src="./assets/image-20260206210657204.png" alt="Falcon LUT-K simulation results" />
 </p>
 <p align="center"><em>Figure 2. Simulation results of the LUT-K reduction architecture for Falcon.</em></p>
+### Polynomial Multiplier Comparison
+
+The following table compares the full polynomial multiplier (NTT → PWM → INTT) with prior work. Area is calculated as $\text{LUT} + 100 \cdot \text{DSP} + 300 \cdot \text{BRAM}$.
+
+| Work      | Platform | PEs  | LUT  | DSP  | BRAM | $F_{max}$ (MHz) | Latency (cycles) NTT/INTT/PWM | Total Time (µs) | Area | ATP       |
+| :-------- | :------- | :--- | :--- | :--- | :--- | :-------------- | :---------------------------- | :-------------- | :--- | :-------- |
+| Yaman     | Artix-7  | 1    | 948  | 1    | 2.5  | 190             | 904/904/647                   | 17.68           | 1798 | 31,788.64 |
+| Yaman     | Artix-7  | 4    | 2543 | 4    | 9    | 182             | 232/233/167                   | 4.75            | 5643 | 26,804.25 |
+| Our Works | Artix-7  | 1    | 742  | 1    | 2.5  | 224             | 906/906/649                   | 15.03           | 1592 | 23,927.76 |
+| Our Works | Artix-7  | 4    | 1559 | 4    | 9    | 204             | 234/235/169                   | 4.27            | 4659 | 19893.93  |
+
 
 ## Project Structure
 
@@ -165,3 +176,4 @@ If you use this code in your research, please acknowledge the following foundati
 
 1. **Bertels, J., et al.** "[A Better Kyber Butterfly for FPGAs](https://ieeexplore.ieee.org/document/10705545/)" (FPL 2024).
 2. **Yaman, F., et al.** "[A Hardware Accelerator for Polynomial Multiplication Operation of CRYSTALS-KYBER PQC Scheme](https://ieeexplore.ieee.org/document/9474139/)" (DATE 2021).
+
