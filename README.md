@@ -33,6 +33,7 @@ The designs were implemented and synthesized using **Vivado 2024.2** on a Xilinx
    <img src="./assets/image-20260206210657204.png" alt="Falcon LUT-K simulation results" />
 </p>
 <p align="center"><em>Figure 2. Simulation results of the LUT-K reduction architecture for Falcon.</em></p>
+
 ### Polynomial Multiplier Comparison
 
 The following table compares the full polynomial multiplier (NTT → PWM → INTT) with prior work. Area is calculated as $\text{LUT} + 100 \cdot \text{DSP} + 300 \cdot \text{BRAM}$.
