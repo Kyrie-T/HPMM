@@ -24,6 +24,10 @@
 *.backup.*
 *.tmp
 
+# Verilator build artifacts
+obj_dir/
+simx.vcd
+
 # OS/editor artifacts
 .DS_Store
 Thumbs.db
