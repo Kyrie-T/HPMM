@@ -208,7 +208,7 @@ The HPMM design produces bit-exact Kyber polynomial multiplication results match
 
 ### The LUT-K Reduction Technique
 
-Modular reduction is often the bottleneck in Lattice-based cryptography. This project leverages the specific structure of PQC moduli ($q = k \cdot 2^x + 1$) to perform efficient reduction:
+Modular reduction is often the bottleneck in Lattice-based cryptography. This project leverages the specific structure of pqc moduli ($q = k \cdot 2^x + 1$) to perform efficient reduction:
 
 1. **LUT-based Reduction**: Uses FPGA primitives (LUT-6) to pre-calculate reduction for high-order bits.
 2. **K-Reduction**: Exploits the property $k \cdot 2^x \equiv -1 \pmod q$ to strictly bound the result.
